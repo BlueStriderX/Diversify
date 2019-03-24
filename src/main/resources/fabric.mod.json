@@ -8,7 +8,6 @@
     "net.fabricmc.example.ExampleMod"
   ],
   "requires": {
-    "fabric": "*"
   },
   "mixins": {
     "client": "modid.client.json",
