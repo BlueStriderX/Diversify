@@ -9,13 +9,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GameClientController.class)
-public abstract class ExampleMixin extends ClientController {
-	private ExampleMixin(ClientState clientState) {
+public abstract class ExampleClientMixin extends ClientController {
+	private ExampleClientMixin(ClientState clientState) {
 		super(clientState);
 	}
 
 	@Inject(at = @At("HEAD"), method = "initialize()V")
-	public void init(CallbackInfo info) {
+	public void onInitialize(CallbackInfo info) {
 		System.out.println("This line is printed by an example mod mixin!");
 	}
 }
