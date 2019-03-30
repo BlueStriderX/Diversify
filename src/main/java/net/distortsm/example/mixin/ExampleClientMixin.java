@@ -1,4 +1,4 @@
-package net.fabricmc.example.mixin;
+package net.distortsm.example.mixin;
 
 import org.schema.game.client.controller.GameClientController;
 import org.schema.schine.network.client.ClientController;
