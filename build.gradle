@@ -1,14 +1,12 @@
 buildscript {
-	repositories {
-		dependencies {
-			classpath 'net.fabricmc:fabric-loom:0.3.0-SNAPSHOT'
-		}
+	dependencies {
+		classpath 'com.github.distortsm:fabric-loader:0.4.7'
 	}
 }
 
 plugins {
-	id 'distort-navigator' version '0.3.0-SNAPSHOT'
 	id 'maven-publish'
+	id('com.github.distortsm.navigator') version "0.3.2"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -20,12 +18,20 @@ group = project.maven_group
 
 starmade {
 	version = project.starmade_version
-	mappings "net.distortsm:reality:${project.reality_mappings}"
+	mappings "com.github.distortsm:reality:${project.reality_mappings}"
+}
+
+repositories {
+	maven {
+		name = 'mojang'
+		url = 'https://libraries.minecraft.net/'
+	}
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
 	//to change the versions see the gradle.properties file
-	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
+	modCompile "com.github.distortsm:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	// modCompile "net.fabricmc:fabric:${project.fabric_version}"
